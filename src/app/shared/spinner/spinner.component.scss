@@ -1,0 +1,11 @@
+:host {
+    display: inline-block;
+}
+
+.fa-spinner {
+    animation: spinme .5s linear infinite;
+}
+
+@keyframes spinme {
+    from { transform: rotate(360deg); }
+}

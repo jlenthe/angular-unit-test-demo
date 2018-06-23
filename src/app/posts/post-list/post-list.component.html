@@ -1,0 +1,16 @@
+<ng-container *ngIf="loading; else loadingComplete">
+  <app-spinner></app-spinner>
+</ng-container>
+<ng-template #loadingComplete>
+  <ng-container *ngIf="error, else noError">
+    <p class="error-message">Sorry, an error occurred loading the data.  Please try again later.</p>
+  </ng-container>
+  <ng-template #noError>
+    <h1>Available Posts</h1>
+    <ol>
+      <li *ngFor="let title of titles" class="post-title">
+        {{ title }}
+      </li>
+    </ol>
+  </ng-template>
+</ng-template>
