@@ -1,4 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { isEqual } from 'lodash';
 import { of } from 'rxjs';
 
 import { mockPosts } from '../test/mock-posts';
@@ -16,7 +17,7 @@ describe('PostService', () => {
 
   it('should get all posts', () => {
     postService.getAllPosts().subscribe(
-      posts => { expect(posts.length).toBe(2); },
+      posts => { expect(isEqual(posts, mockPosts)); },
       () => { fail(); }
     );
     expect(httpClient.get).toHaveBeenCalled();
